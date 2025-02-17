@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Taxímetro</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="static/logo.png" alt="Logo de la Empresa">
+            <h1>Taximetro</h1>
+        </div>
+
+        <!-- Mostrar el nombre del usuario -->
+        <div class="user-info">
+            👋 Bienvenido, {{ usuario }}
+        </div>
+
+        <a href="/">🏠 Home</a>
+        <a href="/recorridos">📋 Recorridos</a>
+        <a href="/tarifas">💰 Tarifas</a>
+        <a href="/logout">🚪 Cerrar Sesión</a>
+    </div>
+
+    <!-- Área principal -->
+    <div class="main-content">
+        <h1>Taxímetro Web</h1>
+        <div id="timer">00:00:00</div>
+
+        <div class="container">
+            <div class="car-container">
+                <img src="static/car.png" alt="Coche" id="car">
+            </div>
+    
+            <div class="info-container"  id="infoContainer">
+                <p><strong>Conductor:</strong> <span id="conductor">{{ usuario }}</span></p>
+                <p><strong>Tiempo Parado:</strong> <span id="tiempo_parado">00:00:00</span></p>
+                <p><strong>Tiempo Movimiento:</strong> <span id="tiempo_movimiento">00:00:00</span></p>
+                <p><strong>Tiempo Total:</strong> <span id="tiempo_total">00:00:00</span></p>
+                <p><strong>Total a Pagar:</strong> <span id="total_pagar">0.00€</span></p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" id="startBtn" onclick="iniciarTaximetro()">Iniciar Taxímetro ▶</button>
+            <button class="btn" id="stopBtn" onclick="finalizarTaximetro()">Finalizar Taxímetro ■</button>
+        </div>
+    </div>
+
+    <script src="static/js/app.js"></script>
+
+</body>
+</html>

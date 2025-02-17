@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorridos - Taxímetro</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+
+        .containerRecorridos{
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+        }
+
+        .recorrido {
+            background-color: #fafafa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .recorrido:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .recorrido p {
+            margin: 5px 0;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #357ab8;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="static/logo.png" alt="Logo de la Empresa">
+            <h1>Taximetro</h1>
+        </div>
+
+        <!-- Mostrar el nombre del usuario -->
+        <div class="user-info">
+            👋 Bienvenido, {{ usuario }}
+        </div>
+
+        <a href="/">🏠 Home</a>
+        <a href="/recorridos">📋 Recorridos</a>
+        <a href="/tarifas">💰 Tarifas</a>
+        <a href="/logout">🚪 Cerrar Sesión</a>
+    </div>
+    <!-- Área principal -->
+    <div class="containerRecorridos">
+        <h1>Recorridos de {{ usuario }}</h1>
+
+        <div class="btn-container">
+            <button class="btn" onclick="descargarTXT()">📄 Descargar TXT</button>
+            <button class="btn" onclick="descargarCSV()">📊 Descargar CSV</button>
+        </div>
+
+        {% for recorrido in recorridos %}
+            <div class="recorrido">
+                <p><strong>Conductor:</strong> {{ recorrido.conductor }}</p>
+                <p><strong>Tiempo Total:</strong> {{ recorrido.tiempo_total }} seg</p>
+                <p><strong>Tiempo Parado:</strong> {{ recorrido.tiempo_parado }} seg</p>
+                <p><strong>Tiempo Movimiento:</strong> {{ recorrido.tiempo_movimiento }} seg</p>
+                <p><strong>Total Pagar:</strong> €{{ recorrido.total_pagar }}</p>
+                <p><strong>Fecha:</strong> {{ recorrido.fecha_registro }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function descargarTXT() {
+            let contenido = '';
+            const recorridos = document.querySelectorAll('.recorrido');
+
+            recorridos.forEach((recorrido, index) => {
+                contenido += `Recorrido ${index + 1}:\n`;
+                recorrido.querySelectorAll('p').forEach(p => {
+                    contenido += `${p.textContent}\n`;
+                });
+                contenido += '\n';
+            });
+
+            const blob = new Blob([contenido], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'recorridos.txt';
+            link.click();
+        }
+
+        function descargarCSV() {
+            let contenido = 'Conductor,Tiempo Total,Tiempo Parado,Tiempo Movimiento,Total Pagar,Fecha\n';
+            const recorridos = document.querySelectorAll('.recorrido');
+
+            recorridos.forEach(recorrido => {
+                const datos = Array.from(recorrido.querySelectorAll('p')).map(p => p.textContent.split(': ')[1]);
+                contenido += `${datos.join(',')}\n`;
+            });
+
+            const blob = new Blob([contenido], { type: 'text/csv' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'recorridos.csv';
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
