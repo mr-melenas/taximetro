@@ -94,12 +94,14 @@ Acceder desde el navegador a: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
 
-## 📜 Licencia
-Este proyecto se distribuye bajo la licencia **MIT**.
-
 ## 👥 Contribuciones
 Si quieres colaborar en este proyecto, ¡serás bienvenido! Puedes abrir un _issue_ o enviar un _pull request_ con mejoras.
 
+--- 
+## 📚 enlaces
+enlace principal del primer git con todos los commit : https://github.com/mr-melenas/ejercicios/tree/main/taximetro
+JIRA: https://mbeltranestudio.atlassian.net/jira/software/projects/SCRUM/boards/1
 ---
+
 
 🚀 ¡Esperamos que este taxímetro te sea útil en tu día a día como conductor!
