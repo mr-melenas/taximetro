@@ -19,8 +19,13 @@ Este proyecto está desarrollado con **Flask** y utiliza **MongoDB** para el alm
 ## 🛠 Instalación
 ### 1️⃣ Clonar el repositorio
 ```bash
-    git clone https://github.com/tuusuario/taximetro-web.git
-    cd taximetro-web
+    git clone https://github.com/tuusuario/taximetro.git
+    cd taximetro
+```
+### NOTA: Instalar UV
+```bash
+    pip install uv 
+    cd taximetro
 ```
 ### 2️⃣ Crear y activar entorno virtual (`venv`)
 ```bash
@@ -35,6 +40,8 @@ Este proyecto está desarrollado con **Flask** y utiliza **MongoDB** para el alm
 ### 3️⃣ Instalar dependencias
 ```bash
     pip install -r requirements.txt
+    o
+    uv pip install --requirements pyproject.toml
 ```
 
 ### 4️⃣ Configurar MongoDB
