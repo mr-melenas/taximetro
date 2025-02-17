@@ -39,8 +39,6 @@ Este proyecto está desarrollado con **Flask** y utiliza **MongoDB** para el alm
 ```
 ### 3️⃣ Instalar dependencias
 ```bash
-    pip install -r requirements.txt
-    o
     uv pip install --requirements pyproject.toml
 ```
 
