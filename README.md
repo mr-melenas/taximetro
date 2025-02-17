@@ -1,5 +1,9 @@
 # 🚖 Taxímetro Web
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eb3898ee-eca7-4c8d-8c28-becafa44ab00" alt="Logo" width="300">
+</p>
+
 Este es el desarrollo web de un taxímetro para el uso de cualquier conductor que lo quiera emplear. Su funcionalidad simple y dinámica le permite, en pocas interacciones, manejar la web con gran versatilidad.
 
 ## 📌 Descripción
@@ -99,8 +103,8 @@ Si quieres colaborar en este proyecto, ¡serás bienvenido! Puedes abrir un _iss
 
 --- 
 ## 📚 enlaces
-enlace principal del primer git con todos los commit : https://github.com/mr-melenas/ejercicios/tree/main/taximetro
-JIRA: https://mbeltranestudio.atlassian.net/jira/software/projects/SCRUM/boards/1
+- Primer git con todos los commit : https://github.com/mr-melenas/ejercicios/tree/main/taximetro .
+- JIRA: https://mbeltranestudio.atlassian.net/jira/software/projects/SCRUM/boards/1
 ---
 
 
