@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="E:\My documents\Cursos\Bootcamp IA\taximetro\venv"
+VIRTUAL_ENV="C:\Users\Administrator\Documents\Max\GitHub\taximetro\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
